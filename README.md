@@ -1,3 +1,3 @@
 # Ligue4
-Desenvolver o jogo Ligue4 utilizando os recursos de programação em Python que tenho conhecimento atualmente.
+Develop the Ligue4 game using the Python programming resources I currently know.
 https://www.mathsisfun.com/games/connect4.html

@@ -1,2 +1,3 @@
 # Ignore specific directories
 /venv
+/classes/__pycache__

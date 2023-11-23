@@ -35,6 +35,3 @@ class Board:
                 return row  # Retorna a linha onde a peça foi colocada
             row -= 1
         return None
-# testing
-# connect4_board = Board()
-# connect4_board.print_board()

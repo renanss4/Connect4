@@ -1,5 +1,5 @@
 from classes.Board import Board
-from classes.Player import Player
+from classes.Player import CpuPlayer, Player
 
 """
 Description:
@@ -10,14 +10,23 @@ Description:
 class Main:
     def __init__(self):
         self.board = Board()
-        self.players = [Player("Player 1", "X"), Player("Player 2", "O")]
-        self.current_player_index = 0
+        num_players = int(input("Enter the number of players (1 or 2): "))
+        if num_players == 1:
+            # name_player = input("Enter the your name: ")
+            self.players = [Player('Player 1', "X"), CpuPlayer()]
+        elif num_players == 2:
+            self.players = [Player("Player 1", "X"), Player("Player 2", "O")]
+        else:
+            print('ERROOR')
+            # exit()
 
     def switch_player(self):
-        # self.current_player_index = 1
         self.current_player_index = 1 - self.current_player_index
 
     def run(self):
+
+        self.current_player_index = 0
+
         runnng = True
 
         while runnng:

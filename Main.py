@@ -18,7 +18,6 @@ class Main:
             self.players = [Player("Player 1", "X"), Player("Player 2", "O")]
         else:
             print('ERROOR')
-            # exit()
 
     def switch_player(self):
         self.current_player_index = 1 - self.current_player_index
@@ -31,7 +30,7 @@ class Main:
 
         while runnng:
             self.board.print_board()
-            current_player = self.players[self.current_player_index] # 0
+            current_player = self.players[self.current_player_index]
             current_player.make_move(self.board)
 
 

@@ -1,6 +1,7 @@
 class Judge:
     # quais os atributos e parametros?
     # checar no diagrama corretamente
+    # será que os parametros não são as jogadas dos jogadores e o tabuleiro?
     def __init__(self):
         pass
 

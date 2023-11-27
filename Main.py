@@ -1,5 +1,6 @@
 from classes.Board import Board
 from classes.Player import CpuPlayer, Player
+from classes.Judge import Judge
 
 class Main:
     """
@@ -22,6 +23,7 @@ class Main:
         Creates instances of players, the judge, and the board based on user input.
         """
         self.board = Board()
+        self.judge = Judge()
         num_players = int(input("Enter the number of players (1 or 2): "))
         if num_players == 1:
             self.players = [Player('Player 1', "X"), CpuPlayer()]

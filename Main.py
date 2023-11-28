@@ -13,8 +13,9 @@ class Main:
             self.players = [Player("Player 1", "X"), Player("Player 2", "O")]
         else:
             print('ERROR')
-
     
+    def switch_player(self):
+        self.current_player_index = 1 - self.current_player_index
 
     def run(self):
         self.current_player_index = 0
@@ -24,19 +25,15 @@ class Main:
             self.board.print_board()
             current_player = self.players[self.current_player_index]
             current_player.make_move(self.board)
-
-            if self.judge.check_draw(self.board):
-                self.board.print_board()
-                print("It's a draw!")
+            if self.judge.check_winner(self.board, current_player.symbol):
+                # self.board.print_board()
+                print(f' wins')
                 running = False
-            elif self.judge.check_incorrect_move(self.board, current_player.current_column):
-                print("Incorrect move. Try again.")
-            elif self.judge.check_winner(self.board, current_player.symbol):
-                self.board.print_board()
-                print(f"{current_player.name} wins!")
+            elif self.judge.check_draw(self.board):
+                print(f'draw')
                 running = False
-            else:
-                self.judge.switch_player()
+            
+            self.switch_player()
 
 
 if __name__ == "__main__":

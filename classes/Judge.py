@@ -3,10 +3,7 @@ class Judge:
     # checar no diagrama corretamente
     # será que os parametros não são as jogadas dos jogadores e o tabuleiro?
     def __init__(self):
-        self.current_player_index = 0
-
-    def switch_player(self):
-        self.current_player_index = 1 - self.current_player_index
+        pass
 
     def check_winner(self, board, symbol):
         # Verificar horizontal

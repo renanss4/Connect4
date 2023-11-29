@@ -2,20 +2,57 @@ from random import choice
 
 class Player:
     def __init__(self, name, symbol, is_human=True):
+        """
+        Initialize a player with a name, symbol, and human status.
+
+        Parameters:
+        - name (str): The name of the player.
+        - symbol (str): The symbol representing the player's pieces on the board.
+        - is_human (bool): True if the player is human, False if it's a CPU player.
+        """
         self.name = name
         self.symbol = symbol
         self.is_human = is_human
 
     def make_move(self, board):
-        column = int(input(f"{self.name}, choose a column (1-{board.columns}): "))
-        self.current_column = column-1
-        board.drop_piece(column-1, self.symbol)
+        """
+        Allow the player to make a move on the board.
+
+        Parameters:
+        - board (Board): The game board.
+        """
+        valid_move = False
+        while not valid_move:
+            column = int(input(f"{self.name}, choose a column (1-{board.columns}): ")) - 1
+            if 0 <= column < board.columns:
+                if board.grid[0][column] == ' ':
+                    board.drop_piece(column, self.symbol)
+                    valid_move = True
+                else:
+                    print("Column is full. Please choose a different column.")
+            else:
+                print("Invalid move. Please choose a different column.")
 
 class CpuPlayer(Player):
     def __init__(self, symbol='O'):
+        """
+        Initialize a CPU player with a name 'CPU', a specified symbol, and human status set to False.
+
+        Parameters:
+        - symbol (str): The symbol representing the CPU player's pieces on the board.
+        """
         super().__init__('CPU', symbol, False)
 
     def get_priority_columns(self, board):
+        """
+        Get columns with a priority for the CPU based on the current board state.
+
+        Parameters:
+        - board (Board): The game board.
+
+        Returns:
+        - list of int: Columns with priority for the CPU.
+        """
         priority_columns = []
 
         col = 0
@@ -27,12 +64,15 @@ class CpuPlayer(Player):
 
             col += 1
 
-        # TODO: Add logic for additional conditions
-
-        return priority_columns  # Adicione esta linha para retornar as colunas prioritárias
-
+        return priority_columns
 
     def make_move(self, board):
+        """
+        Make a move for the CPU player, considering priority columns and available columns.
+
+        Parameters:
+        - board (Board): The game board.
+        """
         priority_columns = self.get_priority_columns(board)
 
         if priority_columns:
@@ -61,3 +101,4 @@ class CpuPlayer(Player):
 
                 if row >= 0:
                     board.drop_piece(chosen_column, self.symbol)
+        print()  # Add a newline for better readability

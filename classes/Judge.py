@@ -1,12 +1,22 @@
 class Judge:
-    # quais os atributos e parametros?
-    # checar no diagrama corretamente
-    # será que os parametros não são as jogadas dos jogadores e o tabuleiro?
-    def __init__(self):
-        pass
+    def __init__(self, name=None):
+        """
+        Initialize the game judge.
+        """
+        self.name = name
 
     def check_winner(self, board, symbol):
-        # Verificar horizontal
+        """
+        Check if the specified symbol has won the game.
+
+        Args:
+        - board (Board): The game board.
+        - symbol (str): The symbol representing the player (e.g., 'X' or 'O').
+
+        Returns:
+        - bool: True if the player with the given symbol has won, False otherwise.
+        """
+        # Check for a horizontal win
         row = 0
         while row < board.rows:
             col = 0
@@ -16,7 +26,7 @@ class Judge:
                 col += 1
             row += 1
 
-        # Verificar vertical
+        # Check for a vertical win
         row = 0
         while row < board.rows - 3:
             col = 0
@@ -26,7 +36,7 @@ class Judge:
                 col += 1
             row += 1
 
-        # Verificar diagonal principal
+        # Check for a diagonal win (from top-left to bottom-right)
         row = 0
         while row < board.rows - 3:
             col = 0
@@ -36,7 +46,7 @@ class Judge:
                 col += 1
             row += 1
 
-        # Verificar diagonal secundária
+        # Check for a diagonal win (from bottom-left to top-right)
         row = 3
         while row < board.rows:
             col = 0
@@ -49,20 +59,19 @@ class Judge:
         return False
 
     def check_draw(self, board):
+        """
+        Check if the game is a draw.
+
+        Args:
+        - board (Board): The game board.
+
+        Returns:
+        - bool: True if the game is a draw, False otherwise.
+        """
+        # Check for a draw by examining the top row of the board
         col = 0
         while col < board.columns:
             if board.grid[0][col] == ' ':
                 return False
             col += 1
         return True
-
-    def check_incorrect_move(self, board, column):
-        if column < 0 or column >= board.columns:
-            return True  # Movimento fora dos limites
-
-        if board.grid[0][column] != ' ':
-            return True  # Coluna cheia
-
-        return False
-
-

@@ -1,4 +1,18 @@
 class Board:
+    """
+    The Board class represents the game board on which players make their moves.
+
+    Attributes:
+    - rows (int): The number of rows on the board.
+    - columns (int): The number of columns on the board.
+    - grid (list): A 2D list representing the current state of the board.
+
+    Methods:
+    - __init__(self, rows=6, columns=7): Initializes the game board.
+    - print_board(self): Prints the current state of the board to the console.
+    - drop_piece(self, column, symbol): Drops a game piece into the specified column.
+    """
+
     def __init__(self, rows=6, columns=7):
         """
         Initialize the game board.

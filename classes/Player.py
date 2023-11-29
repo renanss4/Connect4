@@ -1,6 +1,19 @@
 from random import choice
 
 class Player:
+    """
+    Represents a player in the Connect Four game.
+
+    Attributes:
+    - name (str): The name of the player.
+    - symbol (str): The symbol representing the player's pieces on the board.
+    - is_human (bool): True if the player is human, False if it's a CPU player.
+
+    Methods:
+    - __init__(self, name, symbol, is_human=True): Initializes a player with a name, symbol, and human status.
+    - make_move(self, board): Allows the player to make a move on the board.
+    """
+
     def __init__(self, name, symbol, is_human=True):
         """
         Initialize a player with a name, symbol, and human status.
@@ -34,6 +47,18 @@ class Player:
                 print("Invalid move. Please choose a different column.")
 
 class CpuPlayer(Player):
+    """
+    Represents a CPU player in the Connect Four game, inheriting from the Player class.
+
+    Attributes:
+    - symbol (str): The symbol representing the CPU player's pieces on the board.
+
+    Methods:
+    - __init__(self, symbol='O'): Initializes a CPU player with a specified symbol and human status set to False.
+    - get_priority_columns(self, board): Gets columns with a priority for the CPU based on the current board state.
+    - make_move(self, board): Makes a move for the CPU player, considering priority columns and available columns.
+    """
+
     def __init__(self, symbol='O'):
         """
         Initialize a CPU player with a name 'CPU', a specified symbol, and human status set to False.

@@ -1,7 +1,23 @@
 class Judge:
+    """
+    The Judge class represents the game judge responsible for determining the winner
+    or a draw in a game played on a specified game board.
+
+    Attributes:
+    - name (str): The name of the game judge.
+
+    Methods:
+    - __init__(self, name=None): Initializes the game judge.
+    - check_winner(self, board, symbol): Checks if the specified symbol has won the game.
+    - check_draw(self, board): Checks if the game is a draw.
+    """
+
     def __init__(self, name=None):
         """
         Initialize the game judge.
+
+        Args:
+        - name (str): The name of the game judge.
         """
         self.name = name
 

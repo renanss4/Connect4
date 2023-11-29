@@ -11,8 +11,13 @@ class Main:
     - judge (Judge): The judge responsible for determining the game's outcome.
     - players (list): A list containing Player objects representing the players.
     - current_player_index (int): The index of the current player in the players list.
-    """
 
+    Methods:
+    - __init__(self): Initializes the Connect Four game.
+    - switch_player(self): Switches the current player index for alternating turns.
+    - run(self): Executes the main game loop, allowing players to take turns until there is a winner or draw.
+    """
+    
     def __init__(self):
         """
         Initialize the Connect Four game.

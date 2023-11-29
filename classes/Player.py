@@ -36,15 +36,15 @@ class Player:
         """
         valid_move = False
         while not valid_move:
-            column = int(input(f"{self.name}, choose a column (1-{board.columns}): ")) - 1
+            column = int(input(f'{self.name}, choose a column (1-{board.columns}): ')) - 1
             if 0 <= column < board.columns:
                 if board.grid[0][column] == ' ':
                     board.drop_piece(column, self.symbol)
                     valid_move = True
                 else:
-                    print("Column is full. Please choose a different column.")
+                    print('Column is full. Please choose a different column.')
             else:
-                print("Invalid move. Please choose a different column.")
+                print('Invalid move. Please choose a different column.')
 
 class CpuPlayer(Player):
     """

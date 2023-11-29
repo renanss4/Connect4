@@ -27,9 +27,11 @@ class Board:
         self.grid = []
 
         # Populate the grid with empty spaces
-        for i in range(rows):
+        i = 0
+        while i < rows:
             row = [' '] * columns
             self.grid.append(row)
+            i += 1
 
     def print_board(self):
         """

@@ -1,5 +1,5 @@
 import pytest
-from ..classes.Board import Board
+from classes.Board import Board
 
 def test_board_initialization():
     # Testa se o tabuleiro é inicializado corretamente

@@ -84,8 +84,6 @@ class CpuPlayer(Player):
         while col < len(board.grid[0]):
             if board.grid[0][col] == self.symbol:
                 priority_columns.append(col)
-            elif col + 1 < len(board.grid[0]) and board.grid[0][col + 1] == self.symbol:
-                priority_columns.append(col + 1)
 
             col += 1
 

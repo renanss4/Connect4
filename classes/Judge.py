@@ -7,9 +7,9 @@ class Judge:
     - name (str): The name of the game judge.
 
     Methods:
-    - __init__(self, name=None): Initializes the game judge.
-    - check_winner(self, board, symbol): Checks if the specified symbol has won the game.
-    - check_draw(self, board): Checks if the game is a draw.
+    - check_winner(board, symbol): Checks if the specified symbol has won the game.
+    - check_draw(board): Checks if the game is a draw.
+    - switch_player(current_player_index): Switches the current player index for alternating turns.
     """
 
     def __init__(self, name=None):
@@ -91,3 +91,15 @@ class Judge:
                 return False
             col += 1
         return True
+
+    def switch_player(self, current_player_index):
+        """
+        Switch the current player index for alternating turns.
+
+        Args:
+        - current_player_index (int): The current index of the player in the players list.
+
+        Returns:
+        - int: The index of the switched player.
+        """
+        return 1 - current_player_index

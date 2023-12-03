@@ -45,6 +45,7 @@ class Player:
                     print('Column is full. Please choose a different column.')
             else:
                 print('Invalid move. Please choose a different column.')
+        print()  # Add a newline for better readability
 
 class CpuPlayer(Player):
     """

@@ -37,7 +37,6 @@ class Board:
         """
         Print the current state of the board to the console.
         """
-        # Print the current state of the board to the console
         for row in self.grid:
             print('|', end=' ')
             for cell in row:
@@ -56,7 +55,6 @@ class Board:
         Returns:
         - int or None: The row where the piece was placed, or None if the column is full.
         """
-        # Drop a game piece into the specified column
         row = self.rows - 1
         while row >= 0:
             if self.grid[row][column] == ' ':

@@ -19,7 +19,7 @@ class Judge:
         Args:
         - name (str): The name of the game judge.
         """
-        self.name = name
+        self.name = name # I don't use this
 
     def check_winner(self, board, symbol):
         """

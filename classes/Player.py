@@ -87,7 +87,7 @@ class CpuPlayer(Player):
 
             col += 1
 
-        return priority_columns
+        return priority_columns # Doesn't works correctly
 
     def make_move(self, board):
         """
@@ -108,13 +108,13 @@ class CpuPlayer(Player):
             if row >= 0:
                 board.drop_piece(chosen_column, self.symbol)
         else:
-            available_columns = []
+            available_columns = [] # Maybe it would be good to review it in the future
             col = 0
             while col < len(board.grid[0]):
                 if board.grid[0][col] == ' ':
                     available_columns.append(col)
                 col += 1
-
+            # It always gives [0, 1, 2, 3, 4, 5, 6]
             if available_columns:
                 chosen_column = choice(available_columns)
                 row = len(board.grid) - 1

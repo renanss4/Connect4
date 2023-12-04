@@ -16,3 +16,15 @@ Program the Ligue4 game using the Python programming resources I currently know.
 2. Comentar códigos
 3. Comentar classes
 4. Deixar em inglês
+
+Para rodar os testes, é preciso executar da seguinte forma
+
+```python
+python -m pytest -v test/
+```
+
+ou
+
+```python
+python -m pytest test/
+```

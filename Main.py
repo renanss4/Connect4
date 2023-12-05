@@ -1,5 +1,4 @@
 from classes.Board import Board
-from classes.Player import CpuPlayer, Player
 from classes.Judge import Judge
 
 def run():

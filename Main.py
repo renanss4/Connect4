@@ -11,20 +11,7 @@ def run():
     """
     board = Board()
     judge = Judge()
-
-    # Create players based on user input
-    valid_players = False
-    while not valid_players:
-        # Get the number of players from user input
-        num_players = int(input('Enter the number of players (1 or 2): '))
-        if num_players == 1:
-            players = [Player('Player 1', 'X'), CpuPlayer()]
-            valid_players = True
-        elif num_players == 2:
-            players = [Player('Player 1', 'X'), Player('Player 2', 'O')]
-            valid_players = True
-        else:
-            print('Only one or two players can play.')
+    players = judge.create_players()
 
     current_player_index = 0
     running = True

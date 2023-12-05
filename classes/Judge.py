@@ -1,3 +1,5 @@
+from classes.Player import Player, CpuPlayer
+
 class Judge:
     """
     The Judge class represents the game judge responsible for determining the winner
@@ -20,6 +22,26 @@ class Judge:
         - name (str): The name of the game judge.
         """
         self.name = name # I don't use this
+    
+    def create_players(self):
+        """
+        Create players based on user input.
+
+        Returns:
+        - list: A list containing the created players.
+        """
+        valid_players = False
+        while not valid_players:
+            num_players = int(input('Enter the number of players (1 or 2): '))
+            if num_players == 1:
+                players = [Player('Player 1', 'X'), CpuPlayer()]
+                valid_players = True
+            elif num_players == 2:
+                players = [Player('Player 1', 'X'), Player('Player 2', 'O')]
+                valid_players = True
+            else:
+                print('Only one or two players can play.')
+        return players
 
     def check_winner(self, board, symbol):
         """

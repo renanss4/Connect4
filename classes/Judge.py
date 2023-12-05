@@ -3,15 +3,17 @@ from classes.Player import Player, CpuPlayer
 class Judge:
     """
     The Judge class represents the game judge responsible for determining the winner
-    or a draw in a game played on a specified game board.
+    or a draw in a Connect Four game played on a specified game board.
 
     Attributes:
     - name (str): The name of the game judge.
 
     Methods:
+    - create_players(): Creates a list of players based on user input.
     - check_winner(board, symbol): Checks if the specified symbol has won the game.
     - check_draw(board): Checks if the game is a draw.
     - switch_player(current_player_index): Switches the current player index for alternating turns.
+    - validate_move(current_player, board): Validates the current player's move and updates the game board.
     """
 
     def __init__(self, name=None):
@@ -45,7 +47,7 @@ class Judge:
 
     def check_winner(self, board, symbol):
         """
-        Check if the specified symbol has won the game.
+        Check if the specified symbol has won the Connect Four game.
 
         Args:
         - board (Board): The game board.
@@ -98,7 +100,7 @@ class Judge:
 
     def check_draw(self, board):
         """
-        Check if the game is a draw.
+        Check if the Connect Four game is a draw.
 
         Args:
         - board (Board): The game board.
@@ -125,3 +127,27 @@ class Judge:
         - int: The index of the switched player.
         """
         return 1 - current_player_index
+
+    def validate_move(self, current_player, board):
+        """
+        Validate the current player's move and update the game board.
+
+        Args:
+        - current_player (Player): The player making the move.
+        - board (Board): The game board.
+
+        Returns:
+        - bool: True if the move is valid, False otherwise.
+        """
+        valid_move = False
+        while not valid_move:
+            column = current_player.make_move()  # Use make_move from current player
+            if 0 <= column < board.columns:
+                if board.grid[0][column] == ' ':
+                    board.drop_piece(column, current_player.symbol)
+                    valid_move = True
+                else:
+                    print('Column is full. Please choose a different column.')
+            else:
+                print('Invalid move. Please choose a different column.')
+        print()  # Add a newline for better readability

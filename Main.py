@@ -21,11 +21,12 @@ def run():
 
         # Get the current player and make their move
         current_player = players[current_player_index]
-        
+
         if current_player.is_human:
-            current_player.make_move(board)
+            judge.validate_move(current_player, board)  # Validate the move using Judge
         else:
-            current_player.make_move(board)  # Assume the CPU player makes a move instantly
+            # CPU player makes a move
+            current_player.make_move(board)
 
         # Check for a winner or draw
         if judge.check_winner(board, current_player.symbol):
@@ -40,6 +41,5 @@ def run():
         # Switch to the next player for the next turn
         current_player_index = judge.switch_player(current_player_index)
 
-# Run the game if the script is executed directly
 if __name__ == '__main__':
     run()

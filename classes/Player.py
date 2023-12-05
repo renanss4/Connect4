@@ -69,38 +69,18 @@ class CpuPlayer(Player):
         """
         super().__init__('CPU', symbol, False)
 
-    def get_priority_columns(self, board):
-        """
-        Get columns with a priority for the CPU based on the current board state.
-
-        Parameters:
-        - board (Board): The game board.
-
-        Returns:
-        - list of int: Columns with priority for the CPU.
-        """
-        priority_columns = []
-
-        col = 0
-        while col < len(board.grid[0]):
-            if board.grid[0][col] == self.symbol:
-                priority_columns.append(col)
-
-            col += 1
-
-        return priority_columns # Doesn't works correctly
 
     def make_move(self, board):
-        """
-        Make a move for the CPU player, considering priority columns and available columns.
-
-        Parameters:
-        - board (Board): The game board.
-        """
-        priority_columns = self.get_priority_columns(board)
-
-        if priority_columns:
-            chosen_column = choice(priority_columns)
+        
+        available_columns = [] # Maybe it would be good to review it in the future
+        col = 0
+        while col < len(board.grid[0]):
+            if board.grid[0][col] == ' ':
+                available_columns.append(col)
+            col += 1
+        # It always gives [0, 1, 2, 3, 4, 5, 6]
+        if available_columns:
+            chosen_column = choice(available_columns)
             row = len(board.grid) - 1
 
             while row >= 0 and board.grid[row][chosen_column] != ' ':
@@ -108,21 +88,4 @@ class CpuPlayer(Player):
 
             if row >= 0:
                 board.drop_piece(chosen_column, self.symbol)
-        else:
-            available_columns = [] # Maybe it would be good to review it in the future
-            col = 0
-            while col < len(board.grid[0]):
-                if board.grid[0][col] == ' ':
-                    available_columns.append(col)
-                col += 1
-            # It always gives [0, 1, 2, 3, 4, 5, 6]
-            if available_columns:
-                chosen_column = choice(available_columns)
-                row = len(board.grid) - 1
-
-                while row >= 0 and board.grid[row][chosen_column] != ' ':
-                    row -= 1
-
-                if row >= 0:
-                    board.drop_piece(chosen_column, self.symbol)
         print()  # Add a newline for better readability

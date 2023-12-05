@@ -15,16 +15,7 @@ class Judge:
     - switch_player(current_player_index): Switches the current player index for alternating turns.
     - validate_move(current_player, board): Validates the current player's move and updates the game board.
     """
-
-    def __init__(self, name=None):
-        """
-        Initialize the game judge.
-
-        Args:
-        - name (str): The name of the game judge.
-        """
-        self.name = name # I don't use this
-    
+        
     def create_players(self):
         """
         Create players based on user input.

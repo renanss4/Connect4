@@ -1,76 +1,80 @@
-# Connect Four (Ligue Quatro)
+# Connect Four
 
-Este projeto implementa o jogo Connect Four (Ligue Quatro) em Python, utilizando os recursos disponíveis na linguagem.
+This project implements the Connect Four game in Python, utilizing the resources available in the language.
 
-## Como Jogar
+## How to Play
 
-O Connect Four é um jogo clássico em que dois jogadores alternam jogadas, tentando formar uma linha de quatro fichas consecutivas da mesma cor, seja na horizontal, vertical ou diagonal. O tabuleiro possui sete colunas e seis linhas, e os jogadores escolhem em qual coluna colocar sua ficha.
+Connect Four is a classic game in which two players take turns trying to form a line of four consecutive pieces of the same color, whether horizontally, vertically, or diagonally. The board consists of seven columns and six rows, and players choose in which column to place their piece.
 
-Para jogar:
+To play:
 
-1. Execute o arquivo `Main.py`.
-2. Siga as instruções para configurar o número de jogadores.
-3. Durante o jogo, os jogadores serão alternados, e cada um fará sua jogada escolhendo a coluna desejada.
+1. Execute the file `Main.py`.
+2. Follow the instructions to configure the number of players.
+3. During the game, players will take turns, and each will make their move by choosing the desired column.
 
-## Diagrama UML
+## UML Diagram
 
-![Diagrama UML](/UML_Ligue4.png)
+![UML Diagram](/UML_Connect4.png)
 
-O diagrama UML apresenta a estrutura das classes do projeto, destacando a relação entre elas.
+The UML diagram presents the structure of the project's classes, highlighting the relationship between them.
 
-## Configuração do Ambiente
+## Environment Setup
 
-1. **Ambiente Virtual (Opcional para Pygame):** Se você pretende rodar o jogo com Pygame, é recomendável criar um ambiente virtual. Para isso, execute:
+1. **Virtual Environment (Optional for Pygame):** 
 
-   ```bash
-   python -m venv venv
-   ```
+If you intend to run the game with Pygame, it is recommended to create a virtual environment. To do this, execute:
 
-   Em seguida, ative o ambiente virtual:
+```bash
+python -m venv venv
+```
 
-   - No Windows:
+Then, activate the virtual environment:
 
-     ```bash
-     .\venv\Scripts\activate
-     ```
 
-   - No Linux/Mac:
+- On Windows:
 
-     ```bash
-     source venv/bin/activate
-     ```
+```bash
+.\venv\Scripts\activate
+```
 
-2. **Execução sem Pygame:**
-   Se você não estiver utilizando Pygame, pode executar o projeto normalmente sem a necessidade de um ambiente virtual.
+- On Linux/Mac:
 
-   ```bash
-   python Main.py
-   ```
+```bash
+source venv/bin/activate
+```
 
-## Contribuições
+2. **Execution without Pygame:**
 
-Contribuições são bem-vindas! Se encontrar bugs, problemas ou tiver sugestões para melhorar o jogo, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+If you are not using Pygame, you can run the project normally without the need for a virtual environment.
 
-## Melhorias Futuras
+```bash
+python Main.py
+```
 
-- Implementar funcionalidades com Pygame para uma experiência mais interativa.
-- Melhorar a organização do código e adicionar mais comentários.
-- Adicionar testes automatizados.
+## Contributions
 
-## Execução de Testes
+Contributions are welcome! If you find bugs, issues, or have suggestions to improve the game, feel free to open an issue or submit a pull request.
 
-Para executar os testes, utilize o seguinte comando:
+## Future Improvements
+
+- Implement Pygame features for a more interactive experience.
+- Improve code organization and add more comments.
+- Add automated tests.
+
+## Running Tests
+
+To run the tests, use the following command:
 
 ```bash
 python -m pytest -v test/
 ```
 
-ou
+or
 
 ```bash
 python -m pytest test/
 ```
 
-## Licença
+## License
 
-Este projeto está licenciado sob a [MIT License](LICENSE), o que significa que você tem total liberdade para utilizá-lo da maneira que preferir. Divirta-se jogando e contribuindo!
+This project is licensed under the  [MIT License](LICENSE.md), which means you have complete freedom to use it as you prefer. Enjoy playing and contributing!

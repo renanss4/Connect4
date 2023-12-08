@@ -1,52 +1,44 @@
 import pygame
 import sys
+from classes.Judge import Judge
 
-# Inicializa o Pygame
+# Inicializa a instância do Judge (Juiz)
+judge = Judge()
+
+# Configurações do jogo
+judge.create_board()
+square_size = 100
+width = judge.board.columns * square_size
+height = judge.board.rows * square_size
+
+# Cores
+white = (255, 255, 255)
+blue = (0, 0, 255)
+
+# Inicialização do Pygame
 pygame.init()
 
-# Configurações da janela
-screen_width = 800
-screen_height = 600
-screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("Move Object to Mouse Click")
+# Configuração da tela
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Connect Four")
 
-# Configurações do objeto
-object_width = 50
-object_height = 50
-object_color = (255, 0, 0)  # Cor vermelha (R, G, B)
-obj_surface = pygame.Surface((object_width, object_height))
-obj_surface.fill(object_color)
+# Função para desenhar o tabuleiro
+def draw_board():
+    for row in range(judge.board.rows):
+        for col in range(judge.board.columns):
+            pygame.draw.rect(screen, blue, (col * square_size, row * square_size, square_size, square_size), 0)
+            pygame.draw.circle(screen, white, (col * square_size + square_size // 2, row * square_size + square_size // 2), square_size // 2 - 5)
 
-# Posição inicial do objeto
-x, y = screen_width // 2, screen_height // 2
-
-# Loop principal
-running = True
-clock = pygame.time.Clock()
-
-while running:
+# Loop principal do jogo
+while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
-                running = False
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            # Define a posição do objeto para a posição do clique do mouse
-            x, y = pygame.mouse.get_pos()
+            pygame.quit()
+            sys.exit()
 
-    # Limpa a tela
-    screen.fill((255, 255, 255))
+    # Desenha o tabuleiro
+    screen.fill(white)
+    draw_board()
 
-    # Desenha o objeto na janela
-    screen.blit(obj_surface, (x - object_width // 2, y - object_height // 2))
-
-    # Atualiza a exibição
+    # Atualiza a tela
     pygame.display.flip()
-
-    # Controla a taxa de quadros por segundo (FPS)
-    clock.tick(60)
-
-# Finaliza o Pygame
-pygame.quit()
-sys.exit()

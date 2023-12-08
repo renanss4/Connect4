@@ -29,9 +29,9 @@ pygame.display.set_caption("Connect Four")
 def draw_board():
     for row in range(judge.board.rows):
         for col in range(judge.board.columns):
-            pygame.draw.rect(screen, blue, (col * square_size, row * square_size, square_size, square_size), 0)
+            pygame.draw.rect(screen, blue, (col * square_size, row * square_size, square_size, square_size), 0) # desenha o tabuleiro todo azul no fundo
             pygame.draw.rect(screen, black, (col * square_size, row * square_size, square_size, square_size), 3)  # Adiciona borda ao retângulo
-            pygame.draw.circle(screen, white, (col * square_size + square_size // 2, row * square_size + square_size // 2), square_size // 2 - 5)
+            pygame.draw.circle(screen, white, (col * square_size + square_size // 2, row * square_size + square_size // 2), square_size // 2 - 5) # Desenha os circulos
 
 # Loop principal do jogo
 while True:

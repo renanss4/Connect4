@@ -8,9 +8,8 @@ def run():
     Prints the current state of the board after each turn.
     """
     judge = Judge()
-    players = judge.create_players()
+    judge.create_players()
 
-    current_player_index = 0
     running = True
 
     while running:
@@ -18,7 +17,7 @@ def run():
         judge.create_board()
 
         # Get the current player and make their move
-        current_player = players[current_player_index]
+        current_player = judge.get_current_player()
 
         if current_player.is_human:
             judge.validate_move(current_player)  # Validate the move using Judge
@@ -33,11 +32,11 @@ def run():
             running = False
         elif judge.check_draw():
             judge.create_board()
-            print(f"It's a Draw!")
+            print("It's a Draw!")
             running = False
 
         # Switch to the next player for the next turn
-        current_player_index = judge.switch_player(current_player_index)
+        judge.switch_player()
 
 if __name__ == '__main__':
     run()

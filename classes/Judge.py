@@ -8,14 +8,8 @@ class Judge:
 
     Attributes:
     - board (Board): The game board.
-
-    Methods:
-    - create_board(): Creates a new game board and prints its initial state.
-    - create_players(): Creates a list of players based on user input.
-    - check_winner(symbol): Checks if the specified symbol has won the game.
-    - check_draw(): Checks if the game is a draw.
-    - switch_player(current_player_index): Switches the current player index for alternating turns.
-    - validate_move(current_player): Validates the current player's move and updates the game board.
+    - current_player_index (int): The index of the current player.
+    - players (list): List containing the created players.
     """
     def __init__(self):
         """
@@ -23,14 +17,18 @@ class Judge:
 
         Attributes:
         - board (Board): The game board.
+        - current_player_index (int): The index of the current player.
+        - players (list): List containing the created players.
         """
         self.board = Board()
+        self.current_player_index = 0
+        self.players = []
 
     def create_board(self):
         """
         Creates a new game board and prints its initial state.
         """
-        return self.board.print_board()
+        self.board.print_board()
 
     def create_players(self):
         """
@@ -43,14 +41,14 @@ class Judge:
         while not valid_players:
             num_players = int(input('Enter the number of players (1 or 2): '))
             if num_players == 1:
-                players = [Player('Player 1', 'X'), CpuPlayer()]
+                self.players = [Player('Player 1', 'X'), CpuPlayer()]
                 valid_players = True
             elif num_players == 2:
-                players = [Player('Player 1', 'X'), Player('Player 2', 'O')]
+                self.players = [Player('Player 1', 'X'), Player('Player 2', 'O')]
                 valid_players = True
             else:
                 print('Only one or two players can play.')
-        return players
+        return self.players
 
     def check_winner(self, symbol):
         """
@@ -119,17 +117,11 @@ class Judge:
             col += 1
         return True
 
-    def switch_player(self, current_player_index):
+    def switch_player(self):
         """
         Switch the current player index for alternating turns.
-
-        Args:
-        - current_player_index (int): The current index of the player in the players list.
-
-        Returns:
-        - int: The index of the switched player.
         """
-        return 1 - current_player_index
+        self.current_player_index = 1 - self.current_player_index
 
     def validate_move(self, current_player):
         """
@@ -143,7 +135,7 @@ class Judge:
         """
         valid_move = False
         while not valid_move:
-            column = current_player.make_move()  # Use make_move from current player
+            column = current_player.make_move()  # Use make_move from the current player
             if 0 <= column < self.board.columns:
                 if self.board.grid[0][column] == ' ':
                     self.board.drop_piece(column, current_player.symbol)
@@ -153,3 +145,12 @@ class Judge:
             else:
                 print('Invalid move. Please choose a different column.')
         print()  # Add a newline for better readability
+
+    def get_current_player(self):
+        """
+        Gets the current player based on the current player index.
+
+        Returns:
+        - Player: The current player object.
+        """
+        return self.players[self.current_player_index]

@@ -8,8 +8,8 @@ judge = Judge()
 # Configurações do jogo
 judge.create_board()
 square_size = 100
-board_width = judge.board.columns * square_size
-board_height = judge.board.rows * square_size
+board_width = judge._board._columns * square_size
+board_height = judge._board._rows * square_size
 
 # Cores
 white = (255, 255, 255)
@@ -27,8 +27,8 @@ pygame.display.set_caption("Connect Four")
 
 # Função para desenhar o tabuleiro
 def draw_board():
-    for row in range(judge.board.rows):
-        for col in range(judge.board.columns):
+    for row in range(judge._board._rows):
+        for col in range(judge._board._columns):
             pygame.draw.rect(screen, blue, (col * square_size, row * square_size, square_size, square_size), 0) # desenha o tabuleiro todo azul no fundo
             pygame.draw.rect(screen, black, (col * square_size, row * square_size, square_size, square_size), 3)  # Adiciona borda ao retângulo
             pygame.draw.circle(screen, white, (col * square_size + square_size // 2, row * square_size + square_size // 2), square_size // 2 - 5) # Desenha os circulos

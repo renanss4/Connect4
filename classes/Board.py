@@ -3,9 +3,9 @@ class Board:
     The Board class represents the game board on which players make their moves.
 
     Attributes:
-    - rows (int): The number of rows on the board.
-    - columns (int): The number of columns on the board.
-    - grid (list): A 2D list representing the current state of the board.
+    - _rows (int): The number of rows on the board.
+    - _columns (int): The number of columns on the board.
+    - _grid (list): A 2D list representing the current state of the board.
 
     Methods:
     - __init__(self, rows=6, columns=7): Initializes the game board.
@@ -22,27 +22,27 @@ class Board:
         - columns (int): The number of columns on the board.
         """
         # Initialize the board with the specified number of rows and columns
-        self.rows = rows
-        self.columns = columns
-        self.grid = []
+        self._rows = rows
+        self._columns = columns
+        self._grid = []
 
         # Populate the grid with empty spaces
         i = 0
         while i < rows:
             row = [' '] * columns
-            self.grid.append(row)
+            self._grid.append(row)
             i += 1
 
     def print_board(self):
         """
         Print the current state of the board to the console.
         """
-        for row in self.grid:
+        for row in self._grid:
             print('|', end=' ')
             for cell in row:
                 print(cell, end=' | ')
             print()
-            print('-' * (4 * self.columns + 1))
+            print('-' * (4 * self._columns + 1))
 
     def drop_piece(self, column, symbol):
         """
@@ -55,10 +55,10 @@ class Board:
         Returns:
         - int or None: The row where the piece was placed, or None if the column is full.
         """
-        row = self.rows - 1
+        row = self._rows - 1
         while row >= 0:
-            if self.grid[row][column] == ' ':
-                self.grid[row][column] = symbol
+            if self._grid[row][column] == ' ':
+                self._grid[row][column] = symbol
                 print()  # Add a newline for better readability
                 return row  # Return the row where the piece was placed
             row -= 1

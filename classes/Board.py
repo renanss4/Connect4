@@ -59,6 +59,8 @@ class Board:
         while row >= 0:
             if self.grid[row][column] == ' ':
                 self.grid[row][column] = symbol
+                print()  # Add a newline for better readability
                 return row  # Return the row where the piece was placed
             row -= 1
+        print()  # Add a newline for better readability
         return None  # Return None if the column is full

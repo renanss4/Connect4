@@ -1,4 +1,4 @@
-from random import choice #, randint
+from random import choice
 
 class Player:
     """
@@ -50,8 +50,13 @@ class CpuPlayer(Player):
 
     Methods:
     - __init__(self, symbol='O'): Initializes a CPU player with a specified symbol and human status set to False.
-    - get_priority_columns(self, board): Gets columns with a priority for the CPU based on the current board state.
-    - make_move(self, board): Makes a move for the CPU player, considering priority columns and available columns.
+    - make_move(self, board): Makes a move for the CPU player, considering available columns.
+
+    Parameters:
+    - board (Board): The game board.
+    
+    Returns:
+    - int or None: The row where the piece was placed, or None if no valid move is possible.
     """
 
     def __init__(self, symbol='O'):
@@ -65,13 +70,14 @@ class CpuPlayer(Player):
 
     def make_move(self, board):
         """
-        Makes a move for the CPU player, considering priority columns and available columns.
+        Makes a move for the CPU player, considering available columns.
 
         Parameters:
-        - board (Board): The game board
+        - board (Board): The game board.
+        
+        Returns:
+        - int or None: The row where the piece was placed, or None if no valid move is possible.
         """
-        # chosen_column = randint(0,6)
-        # board.drop_piece(chosen_column, self.symbol)
         available_columns = []
         col = 0
         while col < len(board.grid[0]):
@@ -87,6 +93,6 @@ class CpuPlayer(Player):
                 row -= 1
 
             if row >= 0:
-                board.drop_piece(chosen_column, self.symbol)
-
-        print()  # Add a newline for better readability
+                return board.drop_piece(chosen_column, self.symbol)
+        else:
+            return None

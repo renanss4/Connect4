@@ -20,36 +20,32 @@ The UML diagram presents the structure of the project's classes, highlighting th
 
 ## Environment Setup
 
-1. **Virtual Environment (Optional for Pygame):** 
+1. **Virtual Environment (Optional for Pygame):** If you intend to run the game with Pygame, it is recommended to create a virtual environment. To do this, execute:
 
-If you intend to run the game with Pygame, it is recommended to create a virtual environment. To do this, execute:
+   ```bash
+   python -m venv venv
+   ```
 
-```bash
-python -m venv venv
-```
-
-Then, activate the virtual environment:
+   Then, activate the virtual environment:
 
 
-- On Windows:
+   - On Windows:
 
-```bash
-.\venv\Scripts\activate
-```
+   ```bash
+   .\venv\Scripts\activate
+   ```
 
-- On Linux/Mac:
+   - On Linux/Mac:
 
-```bash
-source venv/bin/activate
-```
+   ```bash
+   source venv/bin/activate
+   ```
 
-2. **Execution without Pygame:**
+2. **Execution without Pygame:** If you are not using Pygame, you can run the project normally without the need for a virtual environment.
 
-If you are not using Pygame, you can run the project normally without the need for a virtual environment.
-
-```bash
-python Main.py
-```
+   ```bash
+   python Main.py
+   ```
 
 ## Contributions
 

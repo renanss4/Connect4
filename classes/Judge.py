@@ -1,5 +1,6 @@
 from classes.Board import Board
-from classes.Player import Player, CpuPlayer
+from classes.Player import Player
+from classes.CpuPlayer import CpuPlayer
 
 class Judge:
     """

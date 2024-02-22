@@ -47,9 +47,56 @@ The UML diagram presents the structure of the project's classes, highlighting th
    python Main.py
    ```
 
-## Contributions
+## Contributing
 
-Contributions are welcome! If you find bugs, issues, or have suggestions to improve the game, feel free to open an issue or submit a pull request.
+Contributions are welcome! If you find bugs, issues, or have suggestions to improve the game, feel free to open an issue or submit a pull request. Below are some ways you can contribute:
+
+### Create a Fork
+
+1. Fork the project by clicking on the "Fork" button at the top right of this page. This will create a copy of the repository in your account.
+
+### Clone the Repository
+
+1. Clone the repository to your local machine:
+   ```sh
+   git clone https://github.com/your-username/your-repository.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd your-repository
+   ```
+
+### Create a New Branch
+
+1. Create a new branch to work on:
+   ```sh
+   git checkout -b my-contribution
+   ```
+
+### Make Changes
+
+1. Make desired changes in the code.
+
+### Commit and Push
+
+1. Commit your changes:
+   ```sh
+   git commit -am 'Adding a new feature'
+   ```
+2. Push your changes to GitHub:
+   ```sh
+   git push origin my-contribution
+   ```
+
+### Send a Pull Request
+
+1. Navigate to your fork's page on GitHub.
+2. Click on the "New Pull Request" button.
+3. Describe your changes and click "Create Pull Request".
+
+Once your Pull Request is reviewed, it can be merged into the main project.
+
+Thank you for contributing!
 
 ## Future Improvements
 

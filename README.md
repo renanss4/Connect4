@@ -28,19 +28,19 @@ The UML diagram presents the structure of the project's classes, highlighting th
    python -m venv venv
    ```
 
-   1.1. Then, activate the virtual environment:
+   1.a. Then, activate the virtual environment:
 
-- On Windows:
+   - On Windows:
 
-   ```bash
-   .\venv\Scripts\activate
-   ```
+      ```bash
+      .\venv\Scripts\activate
+      ```
 
-- On Linux/Mac:
+   - On Linux/Mac:
 
-   ```bash
-   source venv/bin/activate
-   ```
+      ```bash
+      source venv/bin/activate
+      ```
 
 2. **Install requirements.txt:** Don't forget to install the requirements listed in the `requirements.txt` file.
 
@@ -50,7 +50,7 @@ The UML diagram presents the structure of the project's classes, highlighting th
 
 3. **Run the project:** After setting up the environment and installing the necessary dependencies, execute this command to start the project.
 
-   ```python
+   ```bash
    python pygameMain.py
    ```
 
@@ -113,25 +113,52 @@ Once your Pull Request is reviewed, it can be merged into the main project.
 
 Thank you for contributing!
 
+## Running Tests
+
+>  **I'm still learning about testing, so this section is deprecated. I will fix it in the future.**
+
+### With Pytest
+
+If you prefer to run the project with the interface, and have installed the project dependencies, you can execute the tests with the commands below.
+
+To run the tests, use the following command:
+
+```bash
+python  -m  pytest  -v  tests/
+```
+
+or
+
+```bash
+python  -m  pytest  tests/
+```
+
+### Without Pytest
+
+Otherwise, if you haven't installed any dependencies, you can run the tests as follows:
+
+If you want to test file by file, use the command below:
+
+```bash
+# Example
+python  test_math_operations.py
+```
+
+Or if you want to test all at once, use the command below:
+
+```bash
+python  -m  unittest  discover
+```
+
 ## Future Improvements
 
 - Implement Pygame features for a more interactive experience.
 - Improve code organization and add more comments.
 - Add automated tests.
 
-## Running Tests
+## Note
 
-To run the tests, use the following command:
-
-```bash
-python -m pytest -v test/
-```
-
-or
-
-```bash
-python -m pytest test/
-```
+> Perhaps, on Ubuntu it may be necessary to run the commands with `python3`. Don't forget to execute commands such as creating the virtual environment and running the project within the project directory.
 
 ## License
 

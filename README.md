@@ -28,7 +28,7 @@ The UML diagram presents the structure of the project's classes, highlighting th
    python -m venv venv
    ```
 
-   Then, activate the virtual environment:
+   1.1. Then, activate the virtual environment:
 
 - On Windows:
 
